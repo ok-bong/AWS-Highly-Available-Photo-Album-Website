@@ -1,0 +1,9 @@
+CREATE DATABASE photoalbum;
+USE photoalbum;
+CREATE TABLE photos (
+    title VARCHAR(255),
+    description VARCHAR(255),
+    creationdate DATE,
+    keywords VARCHAR(255),
+    reference VARCHAR(255)
+);

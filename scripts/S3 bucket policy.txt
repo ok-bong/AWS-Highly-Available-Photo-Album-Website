@@ -1,0 +1,22 @@
+## CHANGE TO ELB's DNS + TURN OFF BLOCK PUBLIC ACCESS in S3 settings
+
+{
+    "Version": "2012-10-17",
+    "Id": "HTTP referer policy",
+    "Statement": [
+        {
+            "Sid": "Allow only GET requests originating from the ELB",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::jade-photos/*",
+            "Condition": {
+                "StringLike": {
+                    "aws:Referer": "http://ec2-35-173-1-185.compute-1.amazonaws.com/*"
+                }
+            }
+        }
+    ]
+}
